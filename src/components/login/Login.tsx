@@ -41,7 +41,7 @@ const Login = ({ modalState, setModalState }: Props) => {
     
             if (response.status === 200) {
                 console.log(response.data)
-                reset()
+                // reset()
                 navigate("feed")
             }
         } catch (e) {
