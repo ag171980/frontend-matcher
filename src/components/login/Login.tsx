@@ -50,6 +50,7 @@ const Login = ({ modalState, setModalState }: Props) => {
     }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        validateUser(formData)
         console.log(formData)
         navigate("/feed")
     }
