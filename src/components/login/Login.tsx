@@ -26,28 +26,28 @@ const Login = ({ modalState, setModalState }: Props) => {
             { ...formData, [e.target.name]: e.target.value }
         )
     }
-    // const validateUser = async (dataToSend: any) => {
-    //     try {
-    //         const response = await axios.post<FormData>(
-    //             'http://localhost:8000/validateUser',
-    //             dataToSend,
-    //             {
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     Accept: 'application/json',
-    //                 },
-    //             },
-    //         );
+    const validateUser = async (dataToSend: any) => {
+        try {
+            const response = await axios.post<FormData>(
+                'http://localhost:8000/validateUser',
+                dataToSend,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                },
+            );
     
-    //         if (response.status === 200) {
-    //             console.log(response.data)
-    //             reset()
-    //             navigate("feed")
-    //         }
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
+            if (response.status === 200) {
+                console.log(response.data)
+                reset()
+                navigate("feed")
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         console.log(formData)
