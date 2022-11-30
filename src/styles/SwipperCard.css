@@ -1,0 +1,84 @@
+.SwipperCard{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* position: absolute;
+    left: 10%; */
+}
+.data-card{
+    position: absolute;
+    left: 18%;
+    top: 5%;
+    color: white;
+}
+.data-card h1{
+    font-size: 35px;
+    font-weight: bolder;
+}
+.data-card h3{
+    margin: 5px 0;
+    font-weight: bolder;
+    font-size: 23px;
+}
+.data-card .ubicacion{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 25px;
+}
+.data-card .ubicacion > p{
+    font-size: 21px;
+
+}
+.data-card .profesion{
+    margin-top: 10px;
+}
+
+
+
+.match-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.match-buttons button{
+    font-size: 75px;
+    margin: 0 25px;
+    transition: 0.5s all;
+}
+.match-buttons button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.match-buttons .close{
+    color: white;
+}
+.match-buttons .heart{
+    color: red;
+}
+
+.descripcion{
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    width: 70%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.descripcion .leer-mas{
+    border: 1px solid #000;
+    margin-top: 40px;
+    padding: 10px 25px;
+    border-radius: 25px;
+}
