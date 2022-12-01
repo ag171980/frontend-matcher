@@ -92,7 +92,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
             );
             
             if (response.status === 200) {
-                
+                console.log(response.data)
                 setShowModalSuccess(true)
         
             }

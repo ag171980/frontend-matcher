@@ -43,6 +43,7 @@ const Login = ({ modalState, setModalState }: Props) => {
             );
     
             if (response.status === 200) {
+                console.log(response.data)
                 navigate("feed")
             }
         } catch (e) {
