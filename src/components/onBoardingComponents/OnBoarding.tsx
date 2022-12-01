@@ -76,11 +76,7 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
     }
     const createUser = async (dataToSend: any, imagenes:any) => {
         let dattaUser = dataToSend
-
-        dattaUser.img1 = imagenes.img1
-        dattaUser.img2 = imagenes.img2
-        dattaUser.img3 = imagenes.img3
-        dattaUser.img4 = imagenes.img4
+        dattaUser.imagenes = imagenes
 
         console.log(dattaUser)
         try {
@@ -89,15 +85,14 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                 dataToSend,
                 {
                     headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
+                        'Content-Type': 'multipart/form-data',
+                        
                     },
                 },
             );
             
             if (response.status === 200) {
                 
-                console.log(response.data)
                 setShowModalSuccess(true)
         
             }
@@ -114,8 +109,6 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         img4: img4, 
     }
         createUser(formData, imagenes)
-        
-        setShowModalSuccess(true)
     }
 
     const handleClose = () => {
