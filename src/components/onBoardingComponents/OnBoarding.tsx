@@ -92,6 +92,13 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
             );
             
             if (response.status === 200) {
+
+                let userToSave = {
+                    name: dataToSend.name,
+                    age: dataToSend.age,
+                    genderInterest: dataToSend.genderInterest
+                }
+                localStorage.setItem("user", JSON.stringify(userToSave))
                 console.log(response.data)
                 setShowModalSuccess(true)
         
