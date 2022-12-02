@@ -9,9 +9,9 @@ import { SideBar,
 import { useState, useEffect } from "react"
 import axios from 'axios'
 
-type FormType = {
-    genderInterest: string
-};
+// type FormType = {
+//     genderInterest: string
+// };
 
 const Feed = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
