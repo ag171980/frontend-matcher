@@ -30,6 +30,7 @@ const Feed = () => {
             if (response.status === 200) {
                 
                 setUser(response.data)
+                console.log(user)
             }
         } catch (e) {
             console.error(e)
