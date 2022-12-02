@@ -15,10 +15,10 @@ type FormType = {
 
 const Feed = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [formData, setFormData] = useState<FormType>({
-        genderInterest: "woman",
+    // const [formData, setFormData] = useState<FormType>({
+    //     genderInterest: "woman",
         
-    })
+    // })
     const getUsers = async (dataToSend:any) => {
         
 
