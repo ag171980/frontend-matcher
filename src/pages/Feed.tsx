@@ -38,11 +38,11 @@ const Feed = () => {
     }
 
     useEffect(() => {
+        getUsers({genderInterest: 'woman'})
         setTimeout(() => {
             setIsLoading(false)
         }, 500)
     })
-    getUsers({genderInterest: 'woman'})
 
     return (
         <>
