@@ -15,6 +15,7 @@ import axios from 'axios'
 
 const Feed = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [user, setUser] = useState([])
     // const [formData, setFormData] = useState<FormType>({
     //     genderInterest: "woman",
         
@@ -23,13 +24,15 @@ const Feed = () => {
         
 
         try {
-            const response = await axios.get<FormData>(
+            const response = await axios.get(
                 'https://backend-matcher-production.up.railway.app/users',dataToSend);
             
             if (response.status === 200) {
-                console.log(response.data)
-
-        
+                
+                response.data.map((usser:any)=>{
+                    setUser(usser)
+                })
+        console.log(user)
             }
         } catch (e) {
             console.error(e)
