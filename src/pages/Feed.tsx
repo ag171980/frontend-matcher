@@ -38,12 +38,13 @@ const Feed = () => {
     }
 
     useEffect(() => {
-        getUsers({genderInterest: 'woman'})
         setTimeout(() => {
             setIsLoading(false)
         }, 500)
     })
-
+if(isLoading){
+    getUsers({genderInterest: 'woman'})
+}
     return (
         <>
         {isLoading ? <FullScreenLoader/>
