@@ -29,10 +29,7 @@ const Feed = () => {
             
             if (response.status === 200) {
                 
-                response.data.map((usser:any)=>{
-                    setUser(usser)
-                })
-        console.log(user)
+                setUser(response.data)
             }
         } catch (e) {
             console.error(e)
