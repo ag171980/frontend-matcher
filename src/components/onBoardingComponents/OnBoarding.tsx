@@ -78,7 +78,6 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         let dattaUser = dataToSend
         dattaUser.imagenes = imagenes
 
-        console.log(dattaUser)
         try {
             const response = await axios.post<FormData>(
                 'https://backend-matcher-production.up.railway.app/createUser',

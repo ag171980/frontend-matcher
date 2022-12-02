@@ -7,15 +7,41 @@ import { SideBar,
     FullScreenLoader
 } from './../components/';
 import { useState, useEffect } from "react"
+import axios from 'axios'
+
+type FormType = {
+    genderInterest: string
+};
 
 const Feed = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [formData, setFormData] = useState<FormType>({
+        genderInterest: "woman",
+        
+    })
+    const getUsers = async (dataToSend:any) => {
+        
+
+        try {
+            const response = await axios.get<FormData>(
+                'https://backend-matcher-production.up.railway.app/users',dataToSend);
+            
+            if (response.status === 200) {
+                console.log(response.data)
+
+        
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
 
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
         }, 500)
     })
+    getUsers({genderInterest: 'woman'})
 
     return (
         <>
