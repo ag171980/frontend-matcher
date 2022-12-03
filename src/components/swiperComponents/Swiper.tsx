@@ -4,6 +4,7 @@ import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import { SwiperDescription } from '../';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
+import { match } from 'assert';
 
 type Props = {
     swiperSlides: Array<{url: string}>
@@ -33,7 +34,14 @@ const Swiper = ({ swiperSlides }: Props) => {
         setShowModal(true)
         setShowUi(false)
     }
+const matchear = (matchear: boolean)=>{
+    if(matchear){
+        alert("Lo likeaste!")
+    }else{
+        alert("La proxima sera")
+    }
 
+}
     return (
         <>
         {showUi ?
@@ -83,11 +91,11 @@ const Swiper = ({ swiperSlides }: Props) => {
             <div className="flex gap-20 md:gap-32 justify-center items-center">
                 <button type='button' className='iconShadow text-[#FFEAEA] hover:text-[#1F9AFF]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <RiCloseCircleLine size={80} />
+                    <RiCloseCircleLine onClick={()=> matchear(false)} size={80} />
                 </button>
                 <button type='button' className='iconShadow text-[#ed3434] hover:text-[#72E52D]
                 hover:scale-110 transition-all duration-200 ease-linear noSelect'>
-                    <IoHeartCircleOutline size={80} />
+                    <IoHeartCircleOutline onClick={()=> matchear(true)} size={80} />
                 </button>
             </div>
         </div> : null}
