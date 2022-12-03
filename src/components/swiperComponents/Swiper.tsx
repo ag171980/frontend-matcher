@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import { SwiperDescription } from '../';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
-import { match } from 'assert';
+
 
 type Props = {
     swiperSlides: Array<{url: string}>
