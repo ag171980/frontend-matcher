@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaRedoAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaRedoAlt } from 'react-icons/fa';
 
 type Props = {
     modalState: boolean

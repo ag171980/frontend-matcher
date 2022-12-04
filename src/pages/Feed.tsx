@@ -13,22 +13,10 @@ import axios from 'axios'
 //     genderInterest: string
 // };
 
-interface MyObj {
-    age: number
-    description: string
-    email: string
-    gender: string
-    genderInterest: string
-    id: number
-    img1: string
-    img2: string
-    img3: string
-    img4: string
-    name: string
-}
+
 
 const Feed = () => {
-    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
+    const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [users, setUsers] = useState([])
     

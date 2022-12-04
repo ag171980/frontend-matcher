@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
-import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { SwiperDescription } from '../';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { IoHeartCircleOutline } from 'react-icons/io5';
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Swiper = ({ swiperSlides ,user,indice}: Props) => {
-    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
+    const [userLoged, ] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)

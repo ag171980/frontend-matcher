@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaRedoAlt } from 'react-icons/fa';
 
 const UserPage = () => {
-    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
+    const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const navigate = useNavigate()
 
