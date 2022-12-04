@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaRedoAlt } from 'react-icons/fa';
 
 const UserPage = () => {
+    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const navigate = useNavigate()
 
@@ -20,7 +21,7 @@ const UserPage = () => {
             <div className="pageGradientBg h-screen w-full flex flex-col md:flex-row justify-center
             md:justify-between items-center relative">
                 <div className="sideBarContainer md:block hidden">
-                    <SideBar />
+                    <SideBar userLoged={userLoged}/>
                 </div>
                 <div className='md:hidden block absolute top-0 w-screen'>
                     <UserMobileNav/>

@@ -15,7 +15,9 @@ type FormType = {
     email: string
     password: string
 };
-
+type FormData =  {
+    user: any
+  }
 const Login = ({ modalState, setModalState }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormType>({
@@ -44,7 +46,8 @@ const Login = ({ modalState, setModalState }: Props) => {
     
             if (response.status === 200) {
                 console.log(response.data)
-                navigate("feed")
+                localStorage.setItem("userLoged", JSON.stringify(response.data.user))
+                navigate("/feed")
             }
         } catch (e) {
             console.error(e)
@@ -53,8 +56,7 @@ const Login = ({ modalState, setModalState }: Props) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         validateUser(formData)
-        console.log(formData)
-        navigate("/feed")
+        
     }
 
     const handleClose = () => {

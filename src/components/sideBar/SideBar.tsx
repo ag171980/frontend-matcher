@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { FaHeart, FaCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { NotificationsModal } from '../';
-
-const SideBar = () => {
+type Props = {
+    userLoged:any
+}
+const SideBar = ({userLoged}:Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showMessages, setShowMessages] = useState<boolean>(false)
     const [showMatches, setShowMatches] = useState<boolean>(false)
@@ -33,7 +35,7 @@ const SideBar = () => {
                             <div style={{backgroundImage: `url(${profile})`}} className='h-28 w-28 bg-cover
                             bg-center bg-no-repeat rounded-full'/>
                         </div>
-                        <p className='transition-colors font-semibold text-xl mt-2 textShadowSm'>Cinthia</p>
+                        <p className='transition-colors font-semibold text-xl mt-2 textShadowSm'>{userLoged.name}</p>
                     </div>
                 </Link>
             </div>
