@@ -4,11 +4,14 @@ import { FaHeart, FaCommentAlt } from "react-icons/fa";
 type Props = {
     messagesState: boolean
     matchesState: boolean
+    matchesUser:any
     setMatchesState: React.Dispatch<React.SetStateAction<boolean>>
     setMessagesState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const MatchesAndChats = ({messagesState, matchesState, setMatchesState, setMessagesState}: Props) => {
+const MatchesAndChats = ({messagesState, matchesState, setMatchesState, setMessagesState,matchesUser}: Props) => {
+
+    console.log(matchesUser)
     const handleMatches = () => {
         setMatchesState(true)
         setMessagesState(false)
@@ -46,15 +49,18 @@ const MatchesAndChats = ({messagesState, matchesState, setMatchesState, setMessa
         </div>
         {matchesState ?
         <div className="matchesAndChatsContainer">
+            
+            {matchesUser.map((match:any)=>
             <div className="p-[0.225rem] rounded-lg gradientBgMatches matchesAndChatsBox cursor-pointer">
                 <div className="grid place-items-center p-[0.35rem] rounded-md bg-white transition-colors">
                     <div style={{backgroundImage: `url(${profile})`}} className=" w-14 h-14 bg-cover bg-center
                     transition-colors bg-no-repeat rounded-full border-2 border-[#fb9bc3]" />
                     <p className="text-center text-sm font-bold mt-1 break-words textShadowSm transition-colors">
-                        Horacio Perez
+                        {match.name}
                     </p>
                 </div>
             </div>
+        )}
         </div>
         : null}
         {messagesState ?

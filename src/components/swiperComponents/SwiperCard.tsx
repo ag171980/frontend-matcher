@@ -9,7 +9,7 @@ const SwiperCard = ({user,indice}:Props) => {
         const [, setShowUi] = useState<boolean>(true)
         
     return (
-        <div className={`flex flex-col items-center justify-center absolute z-${indice} mb-[0.3rem] md:mb-0 left-0 card-user`}>
+        <div className={`flex flex-col items-center justify-center z-${indice} mb-[0.3rem] md:mb-0 left-0 card-user`}>
             <div className="relative flex flex-col items-center justify-center">
                 <SwiperMatcher user={user} indice={indice}/>
             </div>

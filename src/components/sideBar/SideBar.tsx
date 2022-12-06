@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import { NotificationsModal } from '../';
 type Props = {
     userLoged:any
+    matchesUser:any
 }
-const SideBar = ({userLoged}:Props) => {
+const SideBar = ({userLoged,matchesUser}:Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showMessages, setShowMessages] = useState<boolean>(false)
     const [showMatches, setShowMatches] = useState<boolean>(false)
@@ -46,7 +47,7 @@ const SideBar = ({userLoged}:Props) => {
                 transition-transform hover:scale-110 ease-out" onClick={() => handleMessages()} />
             </div>
         </div>
-        <NotificationsModal modalState={showModal} setModalState={setShowModal}
+        <NotificationsModal matchesUser={matchesUser} modalState={showModal} setModalState={setShowModal}
         messagesState={showMessages} matchesState={showMatches}
         setMatchesState={setShowMatches} setMessagesState={setShowMessages} />
         </>

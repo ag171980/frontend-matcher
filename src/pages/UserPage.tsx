@@ -2,11 +2,28 @@ import { SideBar, UserSwiperCard, FullScreenLoader, UserMobileNav, MobileFooter 
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { FaRedoAlt } from 'react-icons/fa';
+import axios from 'axios';
 
 const UserPage = () => {
     const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const navigate = useNavigate()
+    const [matchesUser, setMatchesUser]= useState([])
+
+    const verifyMatchesByUser = async(idUserActual:any)=>{
+        try {
+            const response = await axios.get(
+                'https://backend-matcher-production.up.railway.app/verifyMatchesUserById',idUserActual);
+            
+            if (response.status === 200) {
+                setMatchesUser(response.data[0][0])
+                // console.log(response.data[0][0])
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
+    verifyMatchesByUser({params: {idUser: userLoged.id}})
 
     useEffect(() => {
         setTimeout(() => {
@@ -21,7 +38,7 @@ const UserPage = () => {
             <div className="pageGradientBg h-screen w-full flex flex-col md:flex-row justify-center
             md:justify-between items-center relative">
                 <div className="sideBarContainer md:block hidden">
-                    <SideBar userLoged={userLoged}/>
+                    <SideBar matchesUser={matchesUser} userLoged={userLoged}/>
                 </div>
                 <div className='md:hidden block absolute top-0 w-screen'>
                     <UserMobileNav/>
@@ -37,7 +54,7 @@ const UserPage = () => {
                     </div>
                 </div>
                 <div className='md:hidden block'>
-                    <MobileFooter/>
+                    <MobileFooter matchesUser={matchesUser}/>
                 </div>
             </div>
         </div>}
