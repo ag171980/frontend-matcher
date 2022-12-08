@@ -27,9 +27,7 @@ const SwiperCard = ({user,indice}:Props) => {
             <div className="w-[22rem] h-[104px] bg-[#FFEAEA] rounded-lg hidden md:flex justify-between
             items-end gap-2 p-3 shadow-sm hover:shadow-md">
                 <p className='text-sm font-medium flex self-start'>
-                {shortenText(/* llamar a descripcion de usuario en vez de a un string */
-                `Lorem ipsum dolor sit amet consectet ura, adipisicing elit. Perspiasd deleniti 
-                expedita laudantium Lorem ipsum dolor`, 125)}
+                {user.description}
                 </p>
                 <button type='button' className='text-[#ed3434] textShadowSm font-bold px-4 py-1
                 rounded-2xl min-w-max gradientBg shadow-md shadow-black/10 btnTransition btnShadow'
