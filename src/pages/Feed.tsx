@@ -73,13 +73,12 @@ const Feed = () => {
                             <MobileFooter />
                         </div>
                         <div className="swiperContainer flex flex-col items-center justify-center relative">
+                            <NoMoreMatches />
                             {users.length !== 0 &&
 
                                 users.map((user, index) => <SwiperCard key={index} user={user} indice={index} users={users} setUsers={setUsers} />)
                             }
-                            {users.length === 0 &&
-                                <NoMoreMatches />
-                            }
+
                             {/* <NoMoreMatches />
                     <SwiperCard />
                     <SwiperCard2 />
