@@ -67,7 +67,7 @@ const Feed = () => {
                     <div className="pageGradientBg flex flex-col-reverse md:flex md:flex-row items-center justify-center
             h-screen w-full relative">
                         <div className="sideBarContainer md:block hidden">
-                            <SideBar userLoged={userLoged} />
+                            <SideBar userLoged={userLoged} matchesUser={matchesUser} />
                         </div>
                         <div className='md:hidden block'>
                             <MobileFooter />

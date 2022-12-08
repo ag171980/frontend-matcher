@@ -8,6 +8,7 @@ type Props = {
     modalState: boolean
     messagesState: boolean
     matchesState: boolean
+    matchesUser:any
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
     setMatchesState: React.Dispatch<React.SetStateAction<boolean>>
     setMessagesState: React.Dispatch<React.SetStateAction<boolean>>
@@ -19,7 +20,8 @@ const NotificationsModal = ({
     matchesState,
     setModalState,
     setMatchesState,
-    setMessagesState
+    setMessagesState,
+    matchesUser
 }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
@@ -60,7 +62,7 @@ const NotificationsModal = ({
                     <div className="absolute -bottom-3 rounded-full h-[3px] w-[99.5%] bg-[#FFCBCB]" />
                 </div>
                 <MatchesAndChats messagesState={messagesState} matchesState={matchesState}
-                setMatchesState={setMatchesState} setMessagesState={setMessagesState} />
+                setMatchesState={setMatchesState} setMessagesState={setMessagesState} matchesUser={matchesUser} />
             </div>
             <button type='button' className='absolute bottom-4 left-1/2 btnSubmitGradient textShadowSm
             btnTransition btnShadow shadow-md font-bold tracking-wider text-[#FFEAEA] rounded-full
