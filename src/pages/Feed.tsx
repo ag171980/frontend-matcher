@@ -70,7 +70,7 @@ const Feed = () => {
                             <SideBar userLoged={userLoged} matchesUser={matchesUser} />
                         </div>
                         <div className='md:hidden block'>
-                            <MobileFooter />
+                            <MobileFooter matchesUser={matchesUser} />
                         </div>
                         <div className="swiperContainer flex flex-col items-center justify-center relative">
                             <NoMoreMatches />

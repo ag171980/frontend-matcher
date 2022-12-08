@@ -3,8 +3,10 @@ import { FaHeart, FaCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { NotificationsModal } from '../';
 import { useState } from 'react';
-
-const MobileFooter = () => {
+type Props = {
+    matchesUser:any
+};
+const MobileFooter = ({matchesUser}:Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showMessages, setShowMessages] = useState<boolean>(false)
     const [showMatches, setShowMatches] = useState<boolean>(false)
@@ -38,7 +40,7 @@ const MobileFooter = () => {
         </div>
         <NotificationsModal modalState={showModal} setModalState={setShowModal}
         messagesState={showMessages} matchesState={showMatches}
-        setMatchesState={setShowMatches} setMessagesState={setShowMessages} />
+        setMatchesState={setShowMatches} setMessagesState={setShowMessages} matchesUser={matchesUser} />
         </>
     )
 }
