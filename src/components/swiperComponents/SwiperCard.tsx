@@ -1,6 +1,6 @@
 import { SwiperMatcher, SwiperDescription } from '../';
 import { useEffect, useState } from 'react';
-import shortenText from '../../utils/shortenText';
+// import shortenText from '../../utils/shortenText';
 type Props={
     user:any
     indice:number
