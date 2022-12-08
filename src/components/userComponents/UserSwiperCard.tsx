@@ -13,7 +13,7 @@ const UserSwiperCard = () => {
 
     return (
         <>
-        <div className='relative w-72 h-[22rem] md:h-[23rem] md:w-[25.5rem] flex flex-col
+        <div className='relative w-[18.25rem] md:w-[22rem] aspect-[4/5] flex flex-col
         items-center justify-center gap-4'>
             <UserSwiper userSwiperSlides={userSwiperSlides} modalEditState={showEditModal}
             setModalEditState={setShowEditModal} />

@@ -8,7 +8,6 @@ type Props = {
     modalState: boolean
     messagesState: boolean
     matchesState: boolean
-    matchesUser:any
     setModalState: React.Dispatch<React.SetStateAction<boolean>>
     setMatchesState: React.Dispatch<React.SetStateAction<boolean>>
     setMessagesState: React.Dispatch<React.SetStateAction<boolean>>
@@ -20,8 +19,7 @@ const NotificationsModal = ({
     matchesState,
     setModalState,
     setMatchesState,
-    setMessagesState,
-    matchesUser
+    setMessagesState
 }: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
@@ -55,12 +53,13 @@ const NotificationsModal = ({
                                 </p>
                             </div>
                         </Link>
-                        <img src={logo} alt="Matcher logo" className="block w-10 cursor-pointer"
-                        onClick={() => handleClose()} />
+                        <div className="w-10 cursor-pointer" onClick={() => handleClose()}>
+                            <img src={logo} alt="Matcher logo" className="block w-full" />
+                        </div>
                     </div>
                     <div className="absolute -bottom-3 rounded-full h-[3px] w-[99.5%] bg-[#FFCBCB]" />
                 </div>
-                <MatchesAndChats matchesUser={matchesUser} messagesState={messagesState} matchesState={matchesState}
+                <MatchesAndChats messagesState={messagesState} matchesState={matchesState}
                 setMatchesState={setMatchesState} setMessagesState={setMessagesState} />
             </div>
             <button type='button' className='absolute bottom-4 left-1/2 btnSubmitGradient textShadowSm

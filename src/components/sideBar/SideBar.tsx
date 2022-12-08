@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 import { NotificationsModal } from '../';
 type Props = {
     userLoged:any
-    matchesUser:any
 }
-const SideBar = ({userLoged,matchesUser}:Props) => {
+const SideBar = ({userLoged}:Props) => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showMessages, setShowMessages] = useState<boolean>(false)
     const [showMatches, setShowMatches] = useState<boolean>(false)
@@ -29,7 +28,9 @@ const SideBar = ({userLoged,matchesUser}:Props) => {
         <>
         <div className='flex flex-col items-center justify-center py-10 bg-[#FF929D] h-screen'>
             <div className="flex flex-col gap-16 items-center">
-                <img src={logo} alt="Matcher logo" className='w-20 block' loading='lazy' />
+                <div className='w-20'>
+                    <img src={logo} alt="Matcher logo" className='w-full block' loading='lazy' />
+                </div>
                 <Link to="/user">
                     <div className="sideBarBox flex flex-col items-center justify-center mt-10">
                         <div className="p-[0.3rem] bg-[#ed3434] transition-colors rounded-full">
@@ -47,7 +48,7 @@ const SideBar = ({userLoged,matchesUser}:Props) => {
                 transition-transform hover:scale-110 ease-out" onClick={() => handleMessages()} />
             </div>
         </div>
-        <NotificationsModal matchesUser={matchesUser} modalState={showModal} setModalState={setShowModal}
+        <NotificationsModal modalState={showModal} setModalState={setShowModal}
         messagesState={showMessages} matchesState={showMatches}
         setMatchesState={setShowMatches} setMessagesState={setShowMessages} />
         </>

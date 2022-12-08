@@ -20,7 +20,9 @@ const Register = () => {
         : 
         <>
         <div className='gradientBg h-screen w-full flex flex-col gap-12 items-center justify-center'>
-            <img src={logo} alt="Matcher logo" className='w-56 block' />
+            <div className="w-56">
+                <img src={logo} alt="Matcher logo" className='w-full block' />
+            </div>
             <div className='w-64 text-center font-bold text-xl textShadowRed'>
                 <p className="text-[#ed3434] textShadowSm">
                     ¡Regístrate en Matcher y conoce un mundo de personas que te esperan en nuestra comunidad!

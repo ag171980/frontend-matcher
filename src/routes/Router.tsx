@@ -11,16 +11,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Register />
-                /* loader: async () => {
-                    return fakeDb.from("teams").select("*")
-                }, */
             },
             {
                 path: "/feed",
                 element: <Feed/>
-                /* loader: async ({ params }) => {
-                    return fetch(`/api/teams/${params.teamId}.json`)
-                }, */
             },
             {
                 path: "/user",

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaRedoAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaRedoAlt } from 'react-icons/fa';
 
 type Props = {
     modalState: boolean
@@ -8,7 +8,12 @@ type Props = {
     setBtnState: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const UserSwiperDescription = ({ modalState, setModalState, setUiState, setBtnState }: Props) => {
+const UserSwiperDescription = ({
+    modalState,
+    setModalState,
+    setUiState,
+    setBtnState
+}: Props) => {
     const [activeClass, SetActiveClass] = useState<boolean>(false)
 
     const handleClose = () => {
@@ -33,14 +38,9 @@ const UserSwiperDescription = ({ modalState, setModalState, setUiState, setBtnSt
                 <div className="flex flex-col items-start gap-[0.15rem] md:gap-1 noSelect">
                     <h1 className='font-extrabold text-xl md:text-2xl'>Ayelen Vargas</h1>
                     <h3 className='font-extrabold text-lg md:text-xl'>24 años</h3>
-                    <div className="flex gap-1 items-center justify-center">
-                        <FaMapMarkerAlt className='textShadowSm' size={19} />
-                        <p className='font-semibold text-base md:text-lg'>San Antonio</p>
-                    </div>
-                    <p className='font-medium text-sm'>Estudiante de Turismo</p>
                 </div>
             </div>
-            <div className='grid place-items-center h-36 md:h-60 mt-14 md:mt-16 overflow-y-auto break-words
+            <div className='grid place-items-center h-[12.5rem] md:h-[21.5rem] overflow-y-auto break-words
             scrollbar-thin scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90 w-[90%] pr-6
             pl-[0.4rem] md:pl-0'>
                 <p className='text-sm font-medium'>

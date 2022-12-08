@@ -1,6 +1,8 @@
 import { SideBar,
     SwiperCard,
-    
+    // SwiperCard2,
+    // SwiperCard3,
+    // NoMoreMatches,
     Recommended,
     MobileNav,
     MobileFooter,
@@ -9,21 +11,12 @@ import { SideBar,
 import { useState, useEffect } from "react"
 import axios from 'axios'
 
-// type FormType = {
-//     genderInterest: string
-// };
-
-
-
 const Feed = () => {
     const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [users, setUsers] = useState([])
     const [matchesUser, setMatchesUser]= useState<string[]>([])
-    
-    // setInterval(function() {
-    //     verifyMatchesByUser({params: {idUser: userLoged.id}})
-    // }, 3000);
+
     const verifyMatchesByUser = async(idUserActual:any)=>{
         try {
             const response = await axios.get(
@@ -40,7 +33,6 @@ const Feed = () => {
             console.error(e)
         }
     }
-    
 
     const getUsers = async (dataToSend:any) => {
         try {
@@ -62,29 +54,30 @@ const Feed = () => {
             setIsLoading(false)
         }, 500)
     })
-if(isLoading){
-    getUsers({params: {genderInterest: userLoged.genderInterest}})
-    verifyMatchesByUser({params: {idUser: userLoged.id}})
-}
+    if(isLoading){
+        getUsers({params: {genderInterest: userLoged.genderInterest}})
+        verifyMatchesByUser({params: {idUser: userLoged.id}})
+    }
     return (
         <>
-        {isLoading ? <FullScreenLoader/>
+        {isLoading ? <FullScreenLoader />
         : <div className='xlContainer'>
             <div className="pageGradientBg flex flex-col-reverse md:flex md:flex-row items-center justify-center
             h-screen w-full relative">
                 <div className="sideBarContainer md:block hidden">
-                    <SideBar matchesUser={matchesUser} userLoged={userLoged} />
+                    <SideBar userLoged={userLoged} />
                 </div>
                 <div className='md:hidden block'>
-                    <MobileFooter matchesUser={matchesUser}/>
+                    <MobileFooter />
                 </div>
-                <div className="swiperContainer flex flex-col items-center justify-start gap-3 relative">
-                    {/* <SwiperFilters /> */}
-                    
-                        {users.map((user, index)=> <SwiperCard key={index} user={user} indice={index}/>)}
-                    
+                <div className="swiperContainer flex flex-col items-center justify-center relative">
+                {users.map((user, index)=> <SwiperCard key={index} user={user} indice={index}/>)}
+                    {/* <NoMoreMatches />
+                    <SwiperCard />
+                    <SwiperCard2 />
+                    <SwiperCard3 /> */}
                 </div>
-                <div className="recommendedContainer md:block bg-[#FF929D] hidden">
+                <div className="sideBarContainer md:block bg-[#FF929D] hidden">
                     <Recommended />
                 </div>
                 <div className='md:hidden block absolute top-0 w-screen'>

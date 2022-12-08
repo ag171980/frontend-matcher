@@ -1,10 +1,9 @@
-import profile from '../../assets/horacio.png';
-import { FaHeart, FaCommentAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaHeart, FaCommentAlt, FaHeartBroken } from 'react-icons/fa';
 import { NotificationsModal } from '../';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const MobileFooter = () => {
+const UserMobileFooter = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [showMessages, setShowMessages] = useState<boolean>(false)
     const [showMatches, setShowMatches] = useState<boolean>(false)
@@ -29,10 +28,9 @@ const MobileFooter = () => {
             onClick={() => handleMatches()} />
             <FaCommentAlt size={33} className="cursor-pointer text-[#FFEAEA] sideBarIcon"
             onClick={() => handleMessages()} />
-            <Link to="/user">
-                <div className="p-[0.25rem] bg-[#ed3434] rounded-full">
-                    <div style={{backgroundImage: `url(${profile})`}} className='h-[2.75rem] w-[2.75rem] bg-cover
-                    bg-center bg-no-repeat rounded-full'/>
+            <Link to="/">
+                <div className="btnUserPageGradient sideBarIcon rounded-full p-3">
+                    <FaHeartBroken className='-scale-x-100 text-lg text-[#FFEAEA]'/>
                 </div>
             </Link>
         </div>
@@ -43,4 +41,4 @@ const MobileFooter = () => {
     )
 }
 
-export default MobileFooter;
+export default UserMobileFooter;

@@ -74,10 +74,6 @@ textarea {
 		width: 70%;
 	}
 
-	.recommendedContainer {
-		width: 15%;
-	}
-
 	.recommendedImgContainer {
 		gap: 0.5rem;
 		margin-top: 1.1rem;
@@ -87,6 +83,11 @@ textarea {
 		@apply grid grid-cols-2 w-full gap-4 px-4 py-4 place-content-start bg-white h-[20.5rem] border-[3px]
 		border-[#ed3434]/60 mt-8 rounded-lg overflow-y-auto overflow-x-hidden scrollbar-thin
 		scrollbar-track-[#ed3434]/30 scrollbar-thumb-[#ed3434]/90
+	}
+
+	.noMoreMatchesContainer {
+		@apply absolute flex flex-col items-center justify-center gap-4 md:gap-6 md:-top-[17.5rem]
+        bg-[#FFEAEA] w-[18.25rem] md:w-[22rem] aspect-[4/5] cardShadow rounded-2xl px-12
 	}
 	
 	/*** component clases ***/
@@ -152,8 +153,16 @@ textarea {
 		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgb(237, 52, 52, 0.9));
 	}
 
+	.swiperCard {
+		@apply flex flex-col items-center justify-center gap-4 mb-[0.3rem] md:mb-0 absolute
+	}
+
 	.sliderCounter {
-		@apply h-[2.25px] w-14 md:w-20 rounded-full
+		@apply h-[2.25px] w-14 md:w-16 rounded-full
+	}
+	
+	.userSliderCounter {
+		@apply h-[2.25px] w-12 md:w-14 rounded-full
 	}
 
 	.notificationsModal {
@@ -176,6 +185,11 @@ textarea {
 
 	.matchesAndChatsBox:hover p {
 		@apply text-[#ed3434]
+	}
+
+	.editModal {
+		@apply w-[20.25rem] h-[24.25rem] md:h-[30rem] bg-[#FFEAEA] rounded-2xl absolute flex flex-col
+		items-center justify-center z-50 cardShadow
 	}
 
 	/*** buttons ***/
@@ -206,11 +220,18 @@ textarea {
 		filter: drop-shadow(0.15rem 0.15rem 0.1rem rgb(237, 52, 52, 0.75));
 	}
 
-	.btnUserPageGradient {
+	.btnFeedGradient {
 		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgba(0, 15, 84, 0.72));
 		background: rgb(35,70,227);
 		background: linear-gradient(180deg, rgba(35,70,227,1) 0%, rgba(29,55,193,1) 30%, rgb(8, 0, 126) 100%);
 	}
+
+	.btnUserPageGradient {
+		filter: drop-shadow(0.12rem 0.12rem 0.12rem rgba(182, 13, 13, 0.75));
+		background: rgb(255,146,157);
+		background: linear-gradient(-180deg, rgb(255, 99, 99) 0%, rgba(237,52,52,1) 50%, rgb(197, 48, 34) 100%);
+	}
+
 
 	/*** utility clases ***/
 
@@ -239,7 +260,7 @@ textarea {
 		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgba(237,52,52,1) 100%);
 	}
 	
-	.btnEditGradient{
+	.btnEditGradient {
 		background: rgb(255,146,157);
 		background: linear-gradient(-180deg, rgba(255,146,157,1) 0%, rgb(255, 99, 99) 25%, rgba(237,52,52,1) 100%);
 	}
@@ -391,10 +412,6 @@ textarea {
             width: 62%;
         }
 
-		.recommendedContainer {
-            width: 19%;
-        }
-
 		.recommendedImgContainer {
 			gap: 2.25rem;
 			margin-top: 3rem;
@@ -484,10 +501,6 @@ textarea {
 		animation: fadeOutTop 250ms linear forwards;
 	}
 	
-	.swiperInfoContainer {
-		animation: fadeOpacity 1.5s linear forwards;
-	}
-
 	.fadeInLeftModal {
 		animation: fadeInLeft 250ms linear forwards;
 	}
@@ -496,10 +509,22 @@ textarea {
 		animation: fadeOutLeft 250ms linear forwards;
 	}
 
+	.fadeInCard {
+		animation: fadeInCard 1000ms linear forwards;
+	}
+
+	.fadeInCard.active {
+		animation: fadeOutCard 1000ms linear forwards;
+	}
+
+	.swiperInfoContainer {
+		animation: fadeOpacity 1.5s linear forwards;
+	}
+
 	.loadingLogo {
 		animation: scaleUpAndDown 750ms linear infinite;
 	}
-	
+
 	@keyframes scaleUpAndDown { 
 		0% {
 			scale: 1;
@@ -553,7 +578,7 @@ textarea {
 			opacity: 1;
 		}
 		50% {
-			opacity: 1;
+			opacity: 0.85;
 		}
 		100% {
 			opacity: 0.7;
@@ -587,6 +612,30 @@ textarea {
 		100% {
 			opacity: 0;
 			left: -50px;
+		}
+	}
+
+	@keyframes fadeInCard {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeOutCard {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0;
 		}
 	}
 }

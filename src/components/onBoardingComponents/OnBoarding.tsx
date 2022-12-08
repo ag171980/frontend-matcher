@@ -37,34 +37,10 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
         confirmPassword: "",
         description: ""
     })
-    const [img1, setImg1] = useState<File[]>([])
-    const [img2, setImg2] = useState<File[]>([])
-    const [img3, setImg3] = useState<File[]>([])
-    const [img4, setImg4] = useState<File[]>([])
-
-    const handleImage1 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
-        if (files && files.length) {
-            setImg1(existing => existing.concat(Array.from(files)))
-        }
-    }
-
-    const handleImage2 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
-        if (files && files.length) {
-            setImg2(existing => existing.concat(Array.from(files)))
-        }
-    }
-
-    const handleImage3 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
-        if (files && files.length) {
-            setImg3(existing => existing.concat(Array.from(files)))
-        }
-    }
-
-    const handleImage4 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
-        if (files && files.length) {
-            setImg4(existing => existing.concat(Array.from(files)))
-        }
-    }
+    const [img1, setImg1] = useState<File>(new File([], "", {}))
+    const [img2, setImg2] = useState<File>(new File([], "", {}))
+    const [img3, setImg3] = useState<File>(new File([], "", {}))
+    const [img4, setImg4] = useState<File>(new File([], "", {}))
 
     const getData = (
         e: React.ChangeEvent<HTMLInputElement> |
@@ -73,6 +49,30 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
             setFormData(
                 { ...formData, [e.target.name]: e.target.value }
             )
+    }
+
+    const handleImg1 = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file = (target.files as FileList)[0]
+        setImg1(file)
+    }
+
+    const handleImg2 = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file = (target.files as FileList)[0]
+        setImg2(file)
+    }
+
+    const handleImg3 = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file = (target.files as FileList)[0]
+        setImg3(file)
+    }
+
+    const handleImg4 = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const target = e.target as HTMLInputElement
+        const file = (target.files as FileList)[0]
+        setImg4(file)
     }
     const createUser = async (dataToSend: any, imagenes:any) => {
         let dattaUser = dataToSend
@@ -224,28 +224,28 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input required type="file" name="img1" accept=".png, .jpg, .jpeg" className="hidden"
-                            onChange={handleImage1} id="img1"/>
+                            onChange={handleImg1} id="img1"/>
                             <label htmlFor="img2" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input required type="file" name="img2" accept=".png, .jpg, .jpeg" className="hidden"
-                            onChange={handleImage2} id="img2"/>
+                            onChange={handleImg2} id="img2"/>
                             <label htmlFor="img3" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input required type="file" name="img3" accept=".png, .jpg, .jpeg" className="hidden"
-                            onChange={handleImage3} id="img3"/>
+                            onChange={handleImg3} id="img3"/>
                             <label htmlFor="img4" className='relative aspect-[4/5] bg-[#e0d4d4] w-24
                             rounded-lg cursor-pointer border-2 border-[#E87C7C] border-dashed'>
                                 <FaTimesCircle size={18} className="bg-[#FFEAEA] text-[#ed3434]
                                 rotate-45 rounded-full absolute -bottom-1 -right-1" />
                             </label>
                             <input required type="file" name="img4" accept=".png, .jpg, .jpeg" className="hidden"
-                            onChange={handleImage4} id="img4"/>
+                            onChange={handleImg4} id="img4"/>
                         </div>
                         <small className='mt-2'>Se requieren 4 imágenes para crear el perfil.</small>
                         <div className='newUserFormDesc'>
@@ -275,6 +275,48 @@ const OnBoarding = ({ modalState, setModalState }: Props) => {
 }
 
 export default OnBoarding;
+
+    /* const [img1, setImg1] = useState<File[]>([])
+    const [img2, setImg2] = useState<File[]>([])
+    const [img3, setImg3] = useState<File[]>([])
+    const [img4, setImg4] = useState<File[]>([])
+ */
+
+    /*     const handleImage1 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg1(existing => existing.concat(Array.from(files)))
+        }
+    }
+
+    const handleImage2 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg2(existing => existing.concat(Array.from(files)))
+        }
+    }
+
+    const handleImage3 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg3(existing => existing.concat(Array.from(files)))
+        }
+    }
+
+    const handleImage4 = ({ currentTarget: {files}, }: React.ChangeEvent<HTMLInputElement>) => {
+        if (files && files.length) {
+            setImg4(existing => existing.concat(Array.from(files)))
+        }
+    } */
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*     const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
         const target = e.target as HTMLInputElement

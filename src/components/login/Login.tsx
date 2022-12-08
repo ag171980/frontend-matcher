@@ -84,8 +84,8 @@ const Login = ({ modalState, setModalState }: Props) => {
                 <form onSubmit={handleSubmit} className="grid place-items-center">
                     <div className='grid place-items-center'>
                         <div className='flex justify-center gap-2'>
-                        <p className='text-xl font-bold text-[#FFEAEA] imgShadow'>Login</p>
-                        <FaHeart size={18} className='mt-[0.425rem] text-[#FFEAEA] imgShadow'/>
+                            <p className='text-xl font-bold text-[#FFEAEA] imgShadow'>Login</p>
+                            <FaHeart size={18} className='mt-[0.425rem] text-[#FFEAEA] imgShadow'/>
                         </div>
                         <div className='h-[3.55px] bg-[#ed3434] imgShadow rounded-full w-[110%] textShadow mt-1'/>
                     </div>

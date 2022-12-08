@@ -9,7 +9,12 @@ type Props = {
     setModalSuccess: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const OnBoardingSuccess = ({ modalState, modalSuccess, setModalState, setModalSuccess }: Props) => {
+const OnBoardingSuccess = ({
+    modalState,
+    modalSuccess,
+    setModalState,
+    setModalSuccess
+}: Props) => {
     const handleClose = () => {
         setModalSuccess(false)
         setModalState(false)
@@ -23,8 +28,8 @@ const OnBoardingSuccess = ({ modalState, modalSuccess, setModalState, setModalSu
         justify-center'>
             <div className="formModalSuccessXl fixed top-0 left-0 w-full h-full grid place-items-center">
                 <div className="formModalSuccess fadeInModal">
-                    <div>
-                        <img src={logo} alt="Matcher logo" className="w-64 block" />
+                    <div className="w-64">
+                        <img src={logo} alt="Matcher logo" className="w-full block" />
                     </div>
                     <div className="text-[#ed3434] textShadowSm">
                         <p className="text-center font-bold text-3xl">
