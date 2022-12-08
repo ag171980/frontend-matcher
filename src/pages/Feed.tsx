@@ -1,8 +1,9 @@
-import { SideBar,
+import {
+    SideBar,
     SwiperCard,
     // SwiperCard2,
     // SwiperCard3,
-    // NoMoreMatches,
+    NoMoreMatches,
     Recommended,
     MobileNav,
     MobileFooter,
@@ -12,20 +13,20 @@ import { useState, useEffect } from "react"
 import axios from 'axios'
 
 const Feed = () => {
-    const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
+    const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged") || '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [users, setUsers] = useState([])
-    const [matchesUser, setMatchesUser]= useState<string[]>([])
+    const [matchesUser, setMatchesUser] = useState<string[]>([])
 
-    const verifyMatchesByUser = async(idUserActual:any)=>{
+    const verifyMatchesByUser = async (idUserActual: any) => {
         try {
             const response = await axios.get(
-                'https://backend-matcher-production.up.railway.app/verifyMatchesUserById',idUserActual);
-            
+                'https://backend-matcher-production.up.railway.app/verifyMatchesUserById', idUserActual);
+
             if (response.status === 200) {
                 setMatchesUser([])
-                response.data.map((match:any)=>
-                    setMatchesUser(matchesUser=> [...matchesUser, match[0]])
+                response.data.map((match: any) =>
+                    setMatchesUser(matchesUser => [...matchesUser, match[0]])
                 )
                 console.log(matchesUser)
                 // console.log(response.data[0][0])
@@ -35,13 +36,13 @@ const Feed = () => {
         }
     }
 
-    const getUsers = async (dataToSend:any) => {
+    const getUsers = async (dataToSend: any) => {
         try {
             const response = await axios.get(
-                'https://backend-matcher-production.up.railway.app/users',dataToSend);
-            
+                'https://backend-matcher-production.up.railway.app/users', dataToSend);
+
             if (response.status === 200) {
-                
+
                 setUsers(response.data)
                 console.log(users)
             }
@@ -55,37 +56,43 @@ const Feed = () => {
             setIsLoading(false)
         }, 500)
     })
-    if(isLoading){
-        getUsers({params: {genderInterest: userLoged.genderInterest}})
-        verifyMatchesByUser({params: {idUser: userLoged.id}})
+    if (isLoading) {
+        getUsers({ params: { genderInterest: userLoged.genderInterest } })
+        verifyMatchesByUser({ params: { idUser: userLoged.id } })
     }
     return (
         <>
-        {isLoading ? <FullScreenLoader />
-        : <div className='xlContainer'>
-            <div className="pageGradientBg flex flex-col-reverse md:flex md:flex-row items-center justify-center
+            {isLoading ? <FullScreenLoader />
+                : <div className='xlContainer'>
+                    <div className="pageGradientBg flex flex-col-reverse md:flex md:flex-row items-center justify-center
             h-screen w-full relative">
-                <div className="sideBarContainer md:block hidden">
-                    <SideBar userLoged={userLoged} />
-                </div>
-                <div className='md:hidden block'>
-                    <MobileFooter />
-                </div>
-                <div className="swiperContainer flex flex-col items-center justify-center relative">
-                {users.map((user, index)=> <SwiperCard key={index} user={user} indice={index}/>)}
-                    {/* <NoMoreMatches />
+                        <div className="sideBarContainer md:block hidden">
+                            <SideBar userLoged={userLoged} />
+                        </div>
+                        <div className='md:hidden block'>
+                            <MobileFooter />
+                        </div>
+                        <div className="swiperContainer flex flex-col items-center justify-center relative">
+                            {users.length !== 0 &&
+
+                                users.map((user, index) => <SwiperCard key={index} user={user} indice={index} />)
+                            }
+                            {users.length === 0 &&
+                                <NoMoreMatches />
+                            }
+                            {/* <NoMoreMatches />
                     <SwiperCard />
                     <SwiperCard2 />
                     <SwiperCard3 /> */}
-                </div>
-                <div className="sideBarContainer md:block bg-[#FF929D] hidden">
-                    <Recommended />
-                </div>
-                <div className='md:hidden block absolute top-0 w-screen'>
-                    <MobileNav />
-                </div>
-            </div>
-        </div>}
+                        </div>
+                        <div className="sideBarContainer md:block bg-[#FF929D] hidden">
+                            <Recommended />
+                        </div>
+                        <div className='md:hidden block absolute top-0 w-screen'>
+                            <MobileNav />
+                        </div>
+                    </div>
+                </div>}
         </>
     )
 }
