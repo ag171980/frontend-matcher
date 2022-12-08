@@ -75,7 +75,7 @@ const Feed = () => {
                         <div className="swiperContainer flex flex-col items-center justify-center relative">
                             {users.length !== 0 &&
 
-                                users.map((user, index) => <SwiperCard key={index} user={user} indice={index} />)
+                                users.map((user, index) => <SwiperCard key={index} user={user} indice={index} users={users} setUsers={setUsers} />)
                             }
                             {users.length === 0 &&
                                 <NoMoreMatches />

@@ -11,10 +11,13 @@ type Props = {
     setCardState: React.Dispatch<React.SetStateAction<boolean>>
     setActiveClassState: React.Dispatch<React.SetStateAction<boolean>>
     user: any
+    users: any
+    setUsers: any
     indice: number
 };
 
-const Swiper = ({ swiperSlides, setCardState, setActiveClassState, user, indice }: Props) => {
+const Swiper = ({ swiperSlides, setCardState, setActiveClassState, user, indice, users, setUsers }: Props) => {
+    console.log(users)
     const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged") || '{}'))
     const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [sliderBtnPressed, setSliderBtnPressed] = useState<boolean>(false)
@@ -39,7 +42,13 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState, user, indice 
         setShowModal(true)
         setShowUi(false)
     }
+    const eliminarUsuario = (indice: number) => {
+        // const posUser = users.indexOf(val)
 
+        users.splice(indice, 1)
+
+        setUsers([...users])
+    }
     const handleClose = (matchear: boolean, indice: number, userId: number) => {
         if (matchear) {
             let dataToSend = {
@@ -47,6 +56,8 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState, user, indice 
                 id_user_matchB: userId
             }
             matchToUser(dataToSend, userId)
+        } else {
+            eliminarUsuario(indice)
         }
 
         setActiveClassState(true)
@@ -70,7 +81,7 @@ const Swiper = ({ swiperSlides, setCardState, setActiveClassState, user, indice 
 
     }
 
-    
+
 
     return (
         <>
