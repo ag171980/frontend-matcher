@@ -9,7 +9,7 @@ import {
 import { useState, useEffect } from "react";
 
 const UserPage = () => {
-    const [userLoged, setUserLoged] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
+    const [userLoged,] = useState(JSON.parse(localStorage.getItem("userLoged")|| '{}'))
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {

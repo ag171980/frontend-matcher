@@ -27,6 +27,7 @@ const Feed = () => {
                 response.data.map((match:any)=>
                     setMatchesUser(matchesUser=> [...matchesUser, match[0]])
                 )
+                console.log(matchesUser)
                 // console.log(response.data[0][0])
             }
         } catch (e) {
